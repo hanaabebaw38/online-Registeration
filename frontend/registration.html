@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Submit your student registration information to Debre Markos University." />
+    <title>Student Registration | Debre Markos University</title>
+    <link rel="stylesheet" href="/src/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  </head>
+  <body class="about-page">
+    <header class="topbar">
+      <nav class="main-nav" aria-label="Main navigation">
+        <div class="brand-header-row">
+          <div class="brand-social-links" aria-label="Social media">
+            <a href="https://web.facebook.com/dmu.edu" target="_blank" rel="noreferrer" aria-label="Facebook" title="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+            <a href="https://t.me/Debre_Markos_University" target="_blank" rel="noreferrer" aria-label="Telegram" title="Telegram"><i class="fa-brands fa-telegram" aria-hidden="true"></i></a>
+            <a href="https://www.youtube.com/results?search_query=debre+markos+university" target="_blank" rel="noreferrer" aria-label="YouTube" title="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" aria-label="Instagram" title="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+          </div>
+          <a class="brand-wrap" href="/#home" aria-label="Debre Markos University home">
+            <img class="brand-logo" src="/images/h.png" alt="Debre Markos University logo" />
+            <span>
+              <span class="brand-name" lang="am">ደብረ ማርቆስ ዩኒቨርሲቲ</span>
+              <span class="brand-sub">Debre Markos University</span>
+            </span>
+          </a>
+          <div class="brand-actions">
+            <details class="brand-search">
+              <summary class="brand-search-toggle" aria-label="Search the website" title="Search the website">
+                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+              </summary>
+              <div class="brand-search-panel">
+                <form class="site-search-form" role="search">
+                  <input class="site-search-input" type="search" placeholder="Search this website" aria-label="Search this website" required />
+                  <button type="submit" aria-label="Search"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
+                </form>
+                <div class="site-search-results" role="status" aria-live="polite"></div>
+              </div>
+            </details>
+            <a class="nav-button brand-sign-in" href="/admin.html" aria-label="Sign in to admin records">
+              <i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i><span>Sign In</span>
+            </a>
+          </div>
+        </div>
+        <a href="/#home">HOME</a>
+        <a href="/about.html">ABOUT US</a>
+        <a href="/campuses.html">CAMPUSES</a>
+        <a href="/administration.html">ADMINISTRATION</a>
+        <a href="/academic.html">ACADEMIC</a>
+        <details class="nav-dropdown">
+          <summary class="nav-dropdown-button" aria-current="page">REGISTRATION</summary>
+          <div class="nav-dropdown-menu">
+            <a href="#senior">Senior Student Registration</a>
+            <a href="#new">New Student Registration</a>
+          </div>
+        </details>
+      </nav>
+    </header>
+
+    <main>
+      <section class="about-page-heading" aria-labelledby="registration-heading">
+        <p class="eyebrow">Student Services</p>
+        <h1 id="registration-heading">Student Registration</h1>
+        <p>Select the correct registration type. Prepare the information listed for that form before submitting.</p>
+      </section>
+
+      <section class="registration-paths" aria-label="Choose a student registration type">
+        <article class="registration-path identity-card registration-card" id="senior">
+          <p class="eyebrow">Continuing students</p>
+          <h2>Senior Student Registration</h2>
+          <h3>Required information</h3>
+          <ul class="registration-requirements">
+            <li>Current DMU student ID</li>
+            <li>Full name and active contact details</li>
+            <li>Program, academic year, and current semester</li>
+          </ul>
+          <form class="form-card" data-registration-form="senior">
+            <input name="studentType" type="hidden" value="senior" />
+            <p class="field-hint registration-required-note">* Required</p>
+            <div class="registration-fields">
+              <label for="senior-name">Full name <span class="required-mark" aria-hidden="true">*</span>
+                <input id="senior-name" name="name" type="text" autocomplete="name" maxlength="120" required />
+              </label>
+              <label for="senior-student-id">Student ID <span class="required-mark" aria-hidden="true">*</span>
+                <input id="senior-student-id" name="studentId" type="text" autocomplete="off" maxlength="64" required />
+              </label>
+              <label for="senior-email">Email address <span class="required-mark" aria-hidden="true">*</span>
+                <input id="senior-email" name="email" type="email" autocomplete="email" maxlength="254" required />
+              </label>
+              <label for="senior-phone">Phone number <span class="required-mark" aria-hidden="true">*</span>
+                <input id="senior-phone" name="phone" type="tel" autocomplete="tel" maxlength="32" required />
+              </label>
+              <label for="senior-program">Program or department <span class="required-mark" aria-hidden="true">*</span>
+                <input id="senior-program" name="program" type="text" maxlength="160" required />
+              </label>
+              <label for="senior-academic-year">Academic year <span class="required-mark" aria-hidden="true">*</span>
+                <input id="senior-academic-year" name="academicYear" type="text" placeholder="For example: Year 2" maxlength="32" required />
+              </label>
+              <label for="senior-semester">Semester <span class="required-mark" aria-hidden="true">*</span>
+                <select id="senior-semester" name="semester" required>
+                  <option value="">Choose semester</option>
+                  <option value="Semester 1">Semester 1</option>
+                  <option value="Semester 2">Semester 2</option>
+                </select>
+              </label>
+            </div>
+            <button type="submit">Submit Senior Registration</button>
+            <p class="status" data-status="senior" role="status" aria-live="polite"></p>
+          </form>
+        </article>
+
+        <article class="registration-path identity-card registration-card" id="new">
+          <p class="eyebrow">New applicants</p>
+          <h2>New Student Registration</h2>
+          <h3>Required information</h3>
+          <ul class="registration-requirements">
+            <li>Admission or application ID</li>
+            <li>Full name and active contact details</li>
+            <li>Admitted program and academic year</li>
+          </ul>
+          <h3>Documents to prepare</h3>
+          <ul class="registration-requirements">
+            <li>DMU admission or acceptance letter confirming admission</li>
+          </ul>
+          <h3>Files to upload together</h3>
+          <ul class="registration-requirements">
+            <li>Grade 12 certificate for eligibility verification</li>
+            <li>Grade 9-12 transcript</li>
+            <li>Grade 8 certificate</li>
+            <li>Grade 10 certificate</li>
+          </ul>
+          <form class="form-card" data-registration-form="new">
+            <input name="studentType" type="hidden" value="new" />
+            <p class="field-hint registration-required-note">* Required</p>
+            <div class="registration-fields">
+              <label for="new-name">Full name <span class="required-mark" aria-hidden="true">*</span>
+                <input id="new-name" name="name" type="text" autocomplete="name" maxlength="120" required />
+              </label>
+              <label for="new-applicant-id">Admission / application ID <span class="required-mark" aria-hidden="true">*</span>
+                <input id="new-applicant-id" name="studentId" type="text" autocomplete="off" maxlength="64" required />
+              </label>
+              <label for="new-email">Email address <span class="required-mark" aria-hidden="true">*</span>
+                <input id="new-email" name="email" type="email" autocomplete="email" maxlength="254" required />
+              </label>
+              <label for="new-phone">Phone number <span class="required-mark" aria-hidden="true">*</span>
+                <input id="new-phone" name="phone" type="tel" autocomplete="tel" maxlength="32" required />
+              </label>
+              <label for="new-program">Admitted program <span class="required-mark" aria-hidden="true">*</span>
+                <input id="new-program" name="program" type="text" maxlength="160" required />
+              </label>
+              <label for="new-academic-year">Admission academic year <span class="required-mark" aria-hidden="true">*</span>
+                <input id="new-academic-year" name="academicYear" type="text" placeholder="For example: Year 1" maxlength="32" required />
+              </label>
+              <label for="new-student-documents">Upload all four documents together <span class="required-mark" aria-hidden="true">*</span>
+                <input id="new-student-documents" name="studentDocuments" type="file" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png" aria-describedby="student-documents-help" multiple required />
+                <small class="field-hint" id="student-documents-help">Select the Grade 12 certificate, Grade 9-12 transcript, Grade 8 certificate, and Grade 10 certificate together. PDF, JPG, or PNG; up to 5 MB each.</small>
+              </label>
+            </div>
+            <button type="submit">Submit New Student Registration</button>
+            <p class="status" data-status="new" role="status" aria-live="polite"></p>
+          </form>
+        </article>
+
+        <p class="registration-admin-link"><a class="section-link" href="/admin.html">Admin records</a></p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-bottom">
+        <p>© 2026 Debre Markos University. All rights reserved.</p>
+      </div>
+    </footer>
+    <script type="module" src="/src/site-search.js"></script>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

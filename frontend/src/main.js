@@ -1,3 +1,5 @@
+import { apiUrl } from './api.js';
+
 const registrationForms = document.querySelectorAll('[data-registration-form]');
 
 registrationForms.forEach((form) => {
@@ -19,7 +21,7 @@ registrationForms.forEach((form) => {
     statusMessage.classList.remove('success', 'error');
 
     try {
-      const response = await fetch('http://localhost:5000/api/register', {
+      const response = await fetch(apiUrl('/api/register'), {
         method: 'POST',
         body: formData
       });

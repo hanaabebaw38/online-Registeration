@@ -1,3 +1,5 @@
+import { apiUrl } from './api.js';
+
 const loginForm = document.querySelector('#admin-login-form');
 const tokenInput = document.querySelector('#admin-token');
 const tokenHint = document.querySelector('#admin-token-hint');
@@ -115,7 +117,7 @@ function renderRegistrations(registrations) {
 }
 
 async function loadRegistrations(token = adminToken) {
-  const response = await fetch('http://localhost:5000/api/admin/registrations', {
+  const response = await fetch(apiUrl('/api/admin/registrations'), {
     headers: { Authorization: `Bearer ${token}` }
   });
   const result = await response.json();
@@ -146,7 +148,7 @@ async function sendAdminRequest(url, options = {}) {
 }
 
 async function downloadRegistrationDocument(registrationId, documentId, documentName) {
-  const response = await fetch(`http://localhost:5000/api/admin/registrations/${registrationId}/documents/${documentId}`, {
+  const response = await fetch(apiUrl(`/api/admin/registrations/${registrationId}/documents/${documentId}`), {
     headers: { Authorization: `Bearer ${adminToken}` }
   });
 
@@ -175,7 +177,7 @@ async function viewRegistrationDocument(registrationId, documentId, documentName
   previewWindow.opener = null;
 
   try {
-    const response = await fetch(`http://localhost:5000/api/admin/registrations/${registrationId}/documents/${documentId}?view=1`, {
+    const response = await fetch(apiUrl(`/api/admin/registrations/${registrationId}/documents/${documentId}?view=1`), {
       headers: { Authorization: `Bearer ${adminToken}` }
     });
     if (!response.ok) {
@@ -276,7 +278,7 @@ registrationRows.addEventListener('click', async (event) => {
 
   setRecordsStatus('Deleting registration...');
   try {
-    const result = await sendAdminRequest(`http://localhost:5000/api/admin/registrations/${registration.id}`, {
+    const result = await sendAdminRequest(apiUrl(`/api/admin/registrations/${registration.id}`), {
       method: 'DELETE'
     });
     await loadRegistrations();
@@ -294,7 +296,7 @@ editForm.addEventListener('submit', async (event) => {
   setEditStatus('Saving changes...');
 
   try {
-    const result = await sendAdminRequest(`http://localhost:5000/api/admin/registrations/${registrationId}`, {
+    const result = await sendAdminRequest(apiUrl(`/api/admin/registrations/${registrationId}`), {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)

@@ -1,10 +1,11 @@
+const baseUrl = import.meta.env.BASE_URL;
 const searchPages = [
-  { path: '/', label: 'Home' },
-  { path: '/about.html', label: 'About Us' },
-  { path: '/campuses.html', label: 'Campuses' },
-  { path: '/administration.html', label: 'Administration' },
-  { path: '/academic.html', label: 'Academic' },
-  { path: '/registration.html', label: 'Registration' }
+  { path: baseUrl, label: 'Home' },
+  { path: `${baseUrl}about.html`, label: 'About Us' },
+  { path: `${baseUrl}campuses.html`, label: 'Campuses' },
+  { path: `${baseUrl}administration.html`, label: 'Administration' },
+  { path: `${baseUrl}academic.html`, label: 'Academic' },
+  { path: `${baseUrl}registration.html`, label: 'Registration' }
 ];
 
 async function fetchPageIndex(page) {

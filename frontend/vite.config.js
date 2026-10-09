@@ -3,8 +3,19 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const projectRoot = dirname(fileURLToPath(import.meta.url));
+const githubPagesMode = process.env.GITHUB_PAGES === 'true';
+
+const githubPagesPaths = {
+  name: 'github-pages-project-paths',
+  transformIndexHtml(html) {
+    if (!githubPagesMode) return html;
+    return html.replace(/(href|src|data-image)="\/(?!online-Registeration\/|\/)/g, '$1="./');
+  }
+};
 
 export default defineConfig({
+  base: githubPagesMode ? '/online-Registeration/' : '/',
+  plugins: [githubPagesPaths],
   build: {
     rollupOptions: {
       input: {
